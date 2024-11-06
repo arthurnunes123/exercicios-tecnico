@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Texto com Prompt</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+ 
+    <h1>Alterar Texto com Prompt</h1>
+   
+    <p id="texto">Meu problema é outro paizão</p>
+   
+    <button id="btnMudarTexto">Mudar Texto</button>
+ 
+    <script>
+        const btn = document.getElementById('btnMudarTexto');
+        const texto = document.getElementById('texto');
+ 
+        btn.addEventListener('click', function() {
+            const novoTexto = prompt('Digite o novo texto:');
+            if (novoTexto !== null && novoTexto.trim() !== '') {
+                texto.innerText = novoTexto;
+            } else {
+                alert('Texto não pode ser vazio!');
+            }
+        });
+    </script>
+ 
+</body>
+</html>

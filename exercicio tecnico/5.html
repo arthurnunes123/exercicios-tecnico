@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudança de Texto ao Pressionar Tecla</title>
+    <style>
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+ 
+    <h1>Mudança de Texto ao Pressionar Tecla</h1>
+   
+    <p id="mensagem">Pressione uma tecla...</p>
+ 
+    <script>
+        const mensagem = document.getElementById('mensagem');
+ 
+        window.addEventListener('keydown', function(event) {
+            mensagem.innerText = 'Você pressionou: ' + event.key;
+        });
+    </script>
+ 
+</body>
+</html>

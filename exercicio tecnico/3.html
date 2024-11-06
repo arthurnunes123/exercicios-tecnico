@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar/Ocultar Texto</title>
+    <style>
+        #texto {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+ 
+    <h1>Mostrar/Ocultar Texto</h1>
+   
+    <button id="btnMostrarOcultar">Mostrar</button>
+   
+    <p id="texto">Mamãe estou perseguindo um fantasma</p>
+ 
+    <script>
+        let visivel = false;
+        const btn = document.getElementById('btnMostrarOcultar');
+        const texto = document.getElementById('texto');
+ 
+        btn.addEventListener('click', function() {
+            visivel = !visivel;
+ 
+            if (visivel) {
+                texto.style.display = 'block';
+                btn.innerText = 'Ocultar';
+            } else {
+                texto.style.display = 'none';
+                btn.innerText = 'Mostrar';
+            }
+        });
+    </script>
+ 
+</body>
+</html>

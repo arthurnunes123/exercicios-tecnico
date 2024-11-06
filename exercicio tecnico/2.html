@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador de Cliques</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #contador {
+            font-size: 30px;
+            margin: 20px;
+        }
+</style>
+</head>
+<body>
+ 
+    <h1>Contador de Cliques</h1>
+<div id="contador">0</div>
+<button id="btn-contar">Contar Cliques</button>
+<button id="btn-resetar">Resetar</button>
+ 
+    <script>
+   
+        let contador = 0;
+ 
+       
+        const contadorElemento = document.getElementById('contador');
+        const btnContar = document.getElementById('btn-contar');
+        const btnResetar = document.getElementById('btn-resetar');
+ 
+       
+        function atualizarContador() {
+            contadorElemento.innerText = contador;
+        }
+ 
+       
+        btnContar.addEventListener('click', function() {
+            contador++;
+            atualizarContador();
+        });
+ 
+       
+        btnResetar.addEventListener('click', function() {
+            contador = 0;
+            atualizarContador();
+        });
+</script>
+ 
+</body>
+</html>

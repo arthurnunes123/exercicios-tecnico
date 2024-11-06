@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votação</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #resultado {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .candidato {
+            margin-top: 20px;
+            display: none;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+</style>
+</head>
+<body>
+ 
+    <h1>Votação - São Paulo</h1>
+<button id="btn-votar">Votar</button>
+ 
+    <div id="resultado"></div>
+ 
+    <div id="candidato1" class="candidato">
+<img src="raiam.jpeg" alt="Candidato 1">
+<p id="nome1">Candidato 1 - Raiam Santos</p>
+</div>
+<div id="candidato2" class="candidato">
+<img src="WhatsApp Image 2024-11-06 at 08.30.24.jpeg" alt="Candidato 2">
+<p id="nome2">Candidato 2 - Pedro Menezes</p>
+</div>
+ 
+    <div id="candidato3" class="candidato">
+<img src="tabata.webp" alt="Candidato 3">
+<p id="nome3">Candidato 3 - Tabata Amaral</p>
+</div>
+ 
+    <script>
+      
+        let votos = {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "nulo": 0
+        };
+ 
+        
+        const candidatos = {
+            "1": { nome: "Raiam Santos", foto: "https://via.placeholder.com/100" },
+            "2": { nome: "Pedro menezes", foto: "https://via.placeholder.com/100" },
+            "3": { nome: "Tabata Amaral", foto: "https://via.placeholder.com/100" }
+        };
+ 
+        function exibirCandidato(candidato) {
+            
+            document.querySelectorAll('.candidato').forEach(div => div.style.display = 'none');
+          
+            const divCandidato = document.getElementById(`candidato${candidato}`);
+            divCandidato.style.display = 'block';
+ 
+           
+            const confirmar = confirm(`Confirmar voto em ${candidatos[candidato].nome}?`);
+ 
+            if (confirmar) {
+                votos[candidato]++;
+                alert(`Voto confirmado em ${candidatos[candidato].nome}`);
+            } else {
+                votos["nulo"]++;
+                alert("Voto anulado");
+            }
+ 
+        
+            console.log("Contagem de votos:", votos);
+        }
+ 
+     
+        function votar() {
+            const voto = prompt("Digite o número do candidato (1: Raiam Santos, 2: Pedro Menezes, 3: Tabata Amaral):");
+ 
+            if (candidatos[voto]) {
+                exibirCandidato(voto);
+            } else {
+               
+                votos["nulo"]++;
+                alert("Voto nulo");
+                console.log("Contagem de votos:", votos);
+            }
+        }
+ 
+        
+        document.getElementById('btn-votar').addEventListener('click', votar);
+</script>
+ 
+</body>
+</html>
